@@ -12,12 +12,15 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-family: sans-serif;
-      color: white;
-      position: relative;
+      font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+      color: #343238;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    /* Языковые логотипы */
+    /* Верхние логотипы */
     .top-right {
       position: absolute;
       top: 20px;
@@ -46,59 +49,64 @@
 
     /* Центральный логотип */
     .center-logo {
-      position: absolute;
-      top: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
     }
 
     .center-logo img {
-      width: 72px;
+      width: 80px;
       height: auto;
     }
 
-    /* Контейнер формы входа */
-    .login-form {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 30px 40px;
-      border-radius: 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      width: 300px;
+    /* Основной белый контейнер */
+    .main-content {
+      background-color: #fff;
+      width: 90%;
+      max-width: 960px;
+      border: solid #fff;
+      border-width: 0 1px 1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px;
       text-align: center;
-      color: black;
+    }
+
+    /* Форма входа */
+    .login-form {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      text-align: left;
     }
 
     .login-form h2 {
       margin-bottom: 20px;
       font-weight: normal;
-      color: black;
+      color: #333;
+      text-align: center;
     }
 
     .login-form input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 0;
-      background: white;
       font-size: 14px;
-      color: black;
+      background-color: #fff;
+      border-radius: 0;
     }
 
     .login-form button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background-color: #0042b1;
-      color: white;
+      color: #fff;
       border: none;
-      border-radius: 0;
-      cursor: pointer;
       font-size: 15px;
+      cursor: pointer;
+      border-radius: 0;
       transition: background 0.3s;
     }
 
@@ -126,14 +134,16 @@
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- Форма входа -->
-  <div class="login-form">
-    <h2>Вход</h2>
-    <form>
-      <input type="text" placeholder="Логин" required>
-      <input type="password" placeholder="Пароль" required>
-      <button type="submit">Войти</button>
-    </form>
+  <!-- Основной белый контейнер -->
+  <div class="main-content">
+    <div class="login-form">
+      <h2>Вход</h2>
+      <form>
+        <input type="text" placeholder="Логин" required>
+        <input type="password" placeholder="Пароль" required>
+        <button type="submit">Войти</button>
+      </form>
+    </div>
   </div>
 
 </body>
