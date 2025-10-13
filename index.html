@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <title>Главная страница</title>
   <style>
-    /* Фон на весь экран */
+    /* Фон */
     body {
       margin: 0;
       min-height: 100vh;
-      background-image: url('bg.png'); /* путь к фоновой картинке */
+      background-image: url('image.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -17,12 +17,7 @@
       position: relative;
     }
 
-    /* Тень для читаемости текста */
-    .content h1, .content p {
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-
-    /* Логотипы языков в верхнем правом углу */
+    /* Языковые логотипы */
     .top-right {
       position: absolute;
       top: 20px;
@@ -52,24 +47,61 @@
     /* Центральный логотип */
     .center-logo {
       position: absolute;
-      top: 36px; /* отступ сверху */
+      top: 36px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
     }
 
     .center-logo img {
-      width: 72px; /* можешь поменять размер */
+      width: 72px;
       height: auto;
     }
 
-    /* Основной текст по центру */
-    .content {
+    /* Контейнер формы входа */
+    .login-form {
       position: absolute;
-      top: 60%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      width: 300px;
       text-align: center;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+      font-weight: normal;
+      color: #fff;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0042b1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    .login-form button:hover {
+      background-color: #003399;
     }
   </style>
 </head>
@@ -92,10 +124,14 @@
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- Основное содержимое -->
-  <div class="content">
-    <h1>!????!</h1>
-    <p>Главная картинка занимает весь экран.</p>
+  <!-- Форма входа -->
+  <div class="login-form">
+    <h2>Вход</h2>
+    <form>
+      <input type="text" placeholder="Логин" required>
+      <input type="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+    </form>
   </div>
 
 </body>
