@@ -2,143 +2,202 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-
+  <title>Главная страница</title>
   <style>
-    /* ======= Общие стили ======= */
+    /* -------------------------
+       Стили для body (вся страница)
+       ------------------------- */
     body {
-      margin: 0;
-      padding: 0;
-      font-family: "NatoSans-Light", Helvetica, Arial, sans-serif;
-      background: url('image.png') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
+      margin: 0; /* убираем стандартные отступы браузера */
+      min-height: 100vh; /* минимальная высота = высоте окна */
+      background-image: url('bg.png'); /* фон страницы */
+      background-size: cover; /* растянуть фон на весь экран */
+      background-position: center; /* центрируем фон */
+      background-repeat: no-repeat; /* не повторять изображение */
+      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif; /* основной шрифт */
+      color: #343238; /* основной цвет текста */
+      display: flex; /* включаем flex-контейнер */
+      justify-content: center; /* центрируем по горизонтали */
+      align-items: center; /* центрируем по вертикали */
+      flex-direction: column; /* элементы выстраиваются вертикально */
     }
 
-    /* ======= Верхняя панель с логотипами ======= */
-    .top-bar {
-      position: absolute;
+    /* -------------------------
+       Контейнер с языками (правый верхний угол)
+       ------------------------- */
+    .top-right {
+      position: absolute; /* фиксируем в углу страницы */
       top: 20px;
       right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
+      display: flex; /* горизонтальное выравнивание логотипов */
+      gap: 20px; /* расстояние между логотипами */
+      align-items: center; /* выравнивание по центру по вертикали */
     }
 
-    .lang {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    /* -------------------------
+       Стиль каждого языкового логотипа
+       ------------------------- */
+    .logo-item {
+      display: flex; /* иконка и текст в ряд */
+      align-items: center; /* вертикальное выравнивание */
+      gap: 5px; /* расстояние между иконкой и текстом */
     }
 
-    .lang img {
-      width: 40px;
-      height: 40px;
+    .logo-item img {
+      width: 24px; /* ширина иконки */
+      height: 24px; /* высота иконки */
     }
 
-    .lang span {
-      color: white;
-      font-size: 16px;
+    .logo-item span {
+      font-size: 14px; /* размер текста */
+      color: white; /* цвет текста */
     }
 
-    /* ======= Центральный логотип ======= */
+    /* -------------------------
+       Центральный логотип страницы
+       ------------------------- */
     .center-logo {
-      margin-top: 120px;
+      margin-top: 32px; /* отступ сверху */
+      margin-bottom: 20px; /* отступ снизу */
     }
 
     .center-logo img {
-      width: 180px;
-      height: auto;
+      width: 72px; /* ширина логотипа */
+      height: auto; /* автоматическая высота для сохранения пропорций */
     }
 
-    /* ======= Форма входа ======= */
-    .login-form {
-      background-color: white; /* Белая форма */
-      padding: 30px 40px;
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      border: 1px solid #ccc;
-      border-radius: 0; /* Без скруглений */
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* -------------------------
+       Основной контейнер с формой
+       ------------------------- */
+    .main-content {
+      background-color: #ffffff; /* белый фон */
+      width: 90%; /* ширина блока 90% от родителя */
+      max-width: 960px; /* максимальная ширина */
+      min-height: 400px; /* минимальная высота */
+      border: solid #ffffff; /* белая рамка */
+      border-width: 0 1px 1px; /* верх 0, боковые и нижняя */
+      border-radius: 0; /* без скругления */
+      box-sizing: border-box; /* учитываем padding в ширину */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* тень вокруг блока */
+      padding: 40px; /* внутренние отступы */
+      display: flex; /* flex для центрирования формы */
+      justify-content: center; /* горизонтальное центрирование */
+      align-items: center; /* вертикальное центрирование */
     }
 
-    /* ======= Поля формы ======= */
-    .field {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+    /* -------------------------
+       Стили формы входа
+       ------------------------- */
+    .wb-form {
+      width: 100%; /* форма занимает всю ширину контейнера */
+      max-width: 400px; /* максимум ширины формы */
+      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
+      font-feature-settings: "kern" on, "liga" off, "calt" on; /* тонкая настройка шрифта */
     }
 
-    .field label {
-      font-size: 14px;
-      color: #333;
-      flex: 1;
-      text-align: right;
+    /* -------------------------
+       Обертка для каждого поля формы
+       ------------------------- */
+    .field-wrapper {
+      display: flex; /* горизонтальное выравнивание label + input */
+      align-items: center; /* вертикальное выравнивание */
+      justify-content: space-between; /* расстояние между label и input */
+      margin: 15px 0; /* отступы сверху и снизу */
     }
 
-    .field input {
-      flex: 2;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 0;
-      font-size: 14px;
+    /* -------------------------
+       Стили для подписей полей (label)
+       ------------------------- */
+    .field-wrapper label {
+      font-size: 13px; /* размер текста */
+      color: #555; /* цвет текста */
+      font-weight: 300; /* легкий шрифт */
+      letter-spacing: 0.3px; /* межбуквенный интервал */
+      width: 100px; /* ширина блока label */
+      text-align: right; /* текст выравнен по правому краю */
+      margin-right: 15px; /* отступ от input */
     }
 
-    /* ======= Кнопка входа ======= */
+    /* -------------------------
+       Стили для полей ввода (input)
+       ------------------------- */
+    .field-wrapper input {
+      flex: 1; /* занимает оставшееся пространство */
+      padding: 10px; /* внутренние отступы */
+      border: 1px solid #ccc; /* серый бордер */
+      background-color: #fff; /* фон поля */
+      font-size: 14px; /* размер текста */
+      border-radius: 0; /* без скругления */
+    }
+
+    /* -------------------------
+       Кнопка входа
+       ------------------------- */
     .login-button {
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 0;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      margin-top: 20px; /* отступ сверху */
+      width: 100%; /* занимает всю ширину формы */
+      padding: 12px; /* внутренние отступы */
+      background-color: #0042b1; /* основной цвет */
+      color: white; /* цвет текста */
+      border: none; /* без рамки */
+      font-size: 15px; /* размер текста */
+      cursor: pointer; /* курсор в виде руки */
+      border-radius: 0; /* без скругления */
+      transition: background 0.3s; /* плавное изменение цвета при hover */
     }
 
+    /* -------------------------
+       Эффект при наведении на кнопку
+       ------------------------- */
     .login-button:hover {
-      background-color: #0056b3;
+      background-color: #003399; /* более темный цвет при hover */
     }
   </style>
 </head>
 <body>
 
-  <!-- ======= Верхняя панель с логотипами ======= -->
-  <div class="top-bar">
-    <div class="lang">
-      <img src="logo.svg" alt="Логотип 1">
+  <!-- -------------------------
+       Логотипы языков в правом верхнем углу
+       ------------------------- -->
+  <div class="top-right">
+    <div class="logo-item">
+      <img src="romana.svg" alt="Română">
       <span>Română</span>
     </div>
-    <div class="lang">
-      <img src="logo.svg" alt="Логотип 2">
+    <div class="logo-item">
+      <img src="russ.svg" alt="Русский">
       <span>Русский</span>
     </div>
   </div>
 
-  <!-- ======= Центральный логотип ======= -->
+  <!-- -------------------------
+       Центральный логотип
+       ------------------------- -->
   <div class="center-logo">
-    <img src="logovkb.svg" alt="Главный логотип">
+    <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- ======= Форма входа ======= -->
-  <form class="login-form">
-    <div class="field">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required>
-    </div>
-    <div class="field">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit" class="login-button">Login</button>
-  </form>
+  <!-- -------------------------
+       Основной контейнер с формой входа
+       ------------------------- -->
+  <div class="main-content">
+    <form class="wb-form">
+      <!-- Поле Username -->
+      <div class="field-wrapper">
+        <label for="username">Username</label>
+        <input id="username" type="text" required>
+      </div>
+
+      <!-- Поле Password -->
+      <div class="field-wrapper">
+        <label for="password">Password</label>
+        <input id="password" type="password" required>
+      </div>
+
+      <!-- Кнопка Войти -->
+      <button class="login-button" type="submit">Войти</button>
+    </form>
+  </div>
 
 </body>
 </html>
