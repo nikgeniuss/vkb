@@ -2,28 +2,27 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Главная картинка</title>
+  <title>Главная страница</title>
   <style>
-    /* Задаем картинку на весь экран */
+    /* Фон на весь экран */
     body {
-      margin: 0;              /* убираем отступы */
-      height: 100vh;          /* высота экрана */
-      background-image: url('image.png'); /* путь к вашей картинке */
-      background-size: cover;      /* растягивает картинку на весь экран */
-      background-position: center; /* центрирует картинку */
-      background-repeat: no-repeat; /* не повторять */
+      margin: 0;
+      min-height: 100vh;
+      background-image: url('images/image.png'); /* путь к вашей картинке */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       font-family: sans-serif;
-      color: white; /* если будут надписи поверх картинки */
-    }
-
-    /* Контейнер для текста или логотипов поверх картинки */
-    .content {
+      color: white;
       position: relative;
-      z-index: 1;
-      text-align: center;
-      padding-top: 20vh; /* отступ сверху */
     }
 
+    /* Полупрозрачная тень для текста для читаемости */
+    .content h1, .content p {
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    /* Контейнер для логотипов в правом верхнем углу */
     .top-right {
       position: absolute;
       top: 20px;
@@ -31,6 +30,7 @@
       display: flex;
       gap: 20px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo-item {
@@ -49,6 +49,15 @@
       color: white;
     }
 
+    /* Основной текст по центру */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -56,11 +65,11 @@
   <!-- Логотипы в верхнем правом углу -->
   <div class="top-right">
     <div class="logo-item">
-      <img src="romana.svg" alt="Română">
+      <img src="images/romsna.svg" alt="Română">
       <span>Română</span>
     </div>
     <div class="logo-item">
-      <img src="russ.svg" alt="Русский">
+      <img src="images/russ.svg" alt="Русский">
       <span>Русский</span>
     </div>
   </div>
