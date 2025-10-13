@@ -2,27 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Пример двух логотипов</title>
+  <title>Главная картинка</title>
   <style>
+    /* Задаем картинку на весь экран */
     body {
-      margin: 0;
+      margin: 0;              /* убираем отступы */
+      height: 100vh;          /* высота экрана */
+      background-image: url('main-image.jpg'); /* путь к вашей картинке */
+      background-size: cover;      /* растягивает картинку на весь экран */
+      background-position: center; /* центрирует картинку */
+      background-repeat: no-repeat; /* не повторять */
       font-family: sans-serif;
+      color: white; /* если будут надписи поверх картинки */
     }
 
-    /* Контейнер для логотипов и подписей */
+    /* Контейнер для текста или логотипов поверх картинки */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 20vh; /* отступ сверху */
+    }
+
     .top-right {
       position: absolute;
       top: 20px;
       right: 20px;
       display: flex;
-      gap: 20px; /* расстояние между логотипами */
+      gap: 20px;
       align-items: center;
     }
 
     .logo-item {
       display: flex;
       align-items: center;
-      gap: 5px; /* расстояние между логотипом и текстом */
+      gap: 5px;
     }
 
     .logo-item img {
@@ -32,24 +46,29 @@
 
     .logo-item span {
       font-size: 14px;
-      color: #333;
+      color: white;
     }
+
   </style>
 </head>
 <body>
 
+  <!-- Логотипы в верхнем правом углу -->
   <div class="top-right">
-    <!-- Первый логотип с подписью Română -->
     <div class="logo-item">
-      <img src="romana.svg" alt="Логотип Română">
+      <img src="romsna.svg" alt="Română">
       <span>Română</span>
     </div>
-
-    <!-- Второй логотип с подписью Русский -->
     <div class="logo-item">
-      <img src="russ.svg" alt="Логотип Русский">
+      <img src="russ.svg" alt="Русский">
       <span>Русский</span>
     </div>
+  </div>
+
+  <!-- Основное содержимое -->
+  <div class="content">
+    <h1>Привет, это мой сайт!</h1>
+    <p>Главная картинка занимает весь экран.</p>
   </div>
 
 </body>
