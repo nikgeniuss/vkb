@@ -8,7 +8,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background-image: url('bg.png'); /* путь к вашей картинке */
+      background-image: url('bg.png'); /* путь к фоновой картинке */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -17,12 +17,12 @@
       position: relative;
     }
 
-    /* Полупрозрачная тень для текста для читаемости */
+    /* Тень для читаемости текста */
     .content h1, .content p {
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
 
-    /* Контейнер для логотипов в правом верхнем углу */
+    /* Логотипы языков в верхнем правом углу */
     .top-right {
       position: absolute;
       top: 20px;
@@ -49,20 +49,33 @@
       color: white;
     }
 
+    /* Центральный логотип */
+    .center-logo {
+      position: absolute;
+      top: 100px; /* отступ сверху */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .center-logo img {
+      width: 180px; /* можешь поменять размер */
+      height: auto;
+    }
+
     /* Основной текст по центру */
     .content {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Логотипы в верхнем правом углу -->
+  <!-- Логотипы языков -->
   <div class="top-right">
     <div class="logo-item">
       <img src="romana.svg" alt="Română">
@@ -72,6 +85,11 @@
       <img src="russ.svg" alt="Русский">
       <span>Русский</span>
     </div>
+  </div>
+
+  <!-- Центральный логотип -->
+  <div class="center-logo">
+    <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
   <!-- Основное содержимое -->
