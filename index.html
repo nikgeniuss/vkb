@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Главная страница</title>
   <style>
-    /* Фон */
     body {
       margin: 0;
       min-height: 100vh;
@@ -12,7 +11,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
       color: #343238;
       display: flex;
       justify-content: center;
@@ -20,7 +19,6 @@
       flex-direction: column;
     }
 
-    /* Верхние логотипы */
     .top-right {
       position: absolute;
       top: 20px;
@@ -28,7 +26,6 @@
       display: flex;
       gap: 20px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .logo-item {
@@ -47,7 +44,6 @@
       color: white;
     }
 
-    /* Центральный логотип */
     .center-logo {
       margin-top: 40px;
       margin-bottom: 20px;
@@ -58,51 +54,61 @@
       height: auto;
     }
 
-    /* Основной белый контейнер */
     .main-content {
-      background-color: #fff;
+      background-color: #ffffff;
       width: 90%;
       max-width: 960px;
-      border: solid #fff;
+      min-height: 400px;
+      border: solid #ffffff;
       border-width: 0 1px 1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
+      border-radius: 0;
       box-sizing: border-box;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       padding: 40px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Форма входа */
-    .login-form {
+    .wb-form {
       width: 100%;
-      max-width: 360px;
-      margin: 0 auto;
-      text-align: left;
+      max-width: 400px;
+      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
+      font-feature-settings: "kern" on, "liga" off, "calt" on;
     }
 
-    .login-form h2 {
-      margin-bottom: 20px;
-      font-weight: normal;
-      color: #333;
-      text-align: center;
+    .field-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
     }
 
-    .login-form input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+    .field-wrapper label {
+      font-size: 13px;
+      color: #555;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      width: 100px;
+      text-align: right;
+      margin-right: 15px;
+    }
+
+    .field-wrapper input {
+      flex: 1;
+      padding: 10px;
       border: 1px solid #ccc;
-      font-size: 14px;
       background-color: #fff;
+      font-size: 14px;
       border-radius: 0;
     }
 
-    .login-form button {
+    .login-button {
+      margin-top: 20px;
       width: 100%;
       padding: 12px;
       background-color: #0042b1;
-      color: #fff;
+      color: white;
       border: none;
       font-size: 15px;
       cursor: pointer;
@@ -110,7 +116,7 @@
       transition: background 0.3s;
     }
 
-    .login-form button:hover {
+    .login-button:hover {
       background-color: #003399;
     }
   </style>
@@ -134,16 +140,19 @@
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- Основной белый контейнер -->
+  <!-- Основной контейнер -->
   <div class="main-content">
-    <div class="login-form">
-      <h2>Вход</h2>
-      <form>
-        <input type="text" placeholder="Логин" required>
-        <input type="password" placeholder="Пароль" required>
-        <button type="submit">Войти</button>
-      </form>
-    </div>
+    <form class="wb-form">
+      <div class="field-wrapper">
+        <label for="username">Username</label>
+        <input id="username" type="text" required>
+      </div>
+      <div class="field-wrapper">
+        <label for="password">Password</label>
+        <input id="password" type="password" required>
+      </div>
+      <button class="login-button" type="submit">Войти</button>
+    </form>
   </div>
 
 </body>
