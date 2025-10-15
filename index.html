@@ -22,6 +22,25 @@
       flex-direction: column; /* элементы выстраиваются вертикально */
     }
 
+
+    .useful-info {
+  display: block;
+  position: absolute;
+  left: 24px;       /* отступ слева */
+  bottom: 24px;     /* отступ снизу формы */
+  font-size: 14px;
+  color: #0088ff;   /* синий как у кнопки */
+  text-decoration: none;
+  font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.useful-info:hover {
+  color: #005fcc;   /* темнее при наведении */
+  text-decoration: underline;
+}
+
+
     /* -------------------------
        Контейнер с языками (правый верхний угол)
        ------------------------- */
@@ -217,6 +236,10 @@
       <!-- Кнопка Войти -->
       <button class="login-button" type="submit">Login</button>
     </form>
+
+<a href="#" class="useful-info">Useful information</a>
+
+    
   </div>
 <script>
 document.querySelector('.wb-form').addEventListener('submit', async function(e) {
