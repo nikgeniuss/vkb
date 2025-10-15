@@ -5,7 +5,7 @@
   <title>Главная страница</title>
   <style>
     /* -------------------------
-       Стили для body (вся страница)
+       Стили для body
        ------------------------- */
     body {
       margin: 0;
@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 20px;
+      padding: 20px; /* паддинг для маленьких экранов */
       box-sizing: border-box;
     }
 
@@ -56,8 +56,8 @@
        Центральный логотип
        ------------------------- */
     .center-logo {
-      margin-top: 36px;
-      margin-bottom: 30px;
+      margin-top: 32px;
+      margin-bottom: 20px;
     }
 
     .center-logo img {
@@ -70,9 +70,8 @@
        ------------------------- */
     .main-content {
       background-color: #ffffff;
-      width: 90%;
+      width: 100%;
       max-width: 960px;
-      min-height: 400px;
       border: solid #ffffff;
       border-width: 0 1px 1px;
       border-radius: 0;
@@ -80,9 +79,9 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       padding: 40px;
       display: flex;
-      flex-direction: column;
+      flex-direction: column; /* чтобы элементы под формой шли вниз */
       align-items: center;
-      position: relative; /* для элементов внутри */
+      position: relative; /* для позиционирования подписи и ссылок */
     }
 
     /* -------------------------
@@ -92,10 +91,6 @@
       width: 100%;
       max-width: 400px;
       font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
-      font-feature-settings: "kern" on, "liga" off, "calt" on;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .field-wrapper {
@@ -103,7 +98,6 @@
       align-items: center;
       justify-content: space-between;
       margin: 15px 0;
-      width: 100%;
     }
 
     .field-wrapper label {
@@ -125,6 +119,9 @@
       border-radius: 0;
     }
 
+    /* -------------------------
+       Кнопка входа
+       ------------------------- */
     .login-button {
       margin: 48px auto 0;
       display: block;
@@ -151,16 +148,25 @@
     }
 
     /* -------------------------
-       Ссылки и текст под формой
+       Подписи и ссылки под формой
        ------------------------- */
+    .form-bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+      flex-wrap: wrap; /* для маленьких экранов */
+    }
+
     .useful-info {
       font-size: 14px;
       color: #0088ff;
       text-decoration: none;
       font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
       transition: color 0.3s ease;
-      margin-top: 20px;
     }
+
     .useful-info:hover {
       color: #005fcc;
       text-decoration: underline;
@@ -172,51 +178,33 @@
       color: #171cb3;
       font-family: NatoSans-Light, Helvetica, Arial, sans-serif;
       line-height: 1.3;
-      margin-top: 20px;
     }
 
     .form-footer-text {
+      width: 100%;
+      text-align: left;
       font-size: 12px;
       color: #777;
       font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
-      margin-top: 20px;
+      margin-top: 16px;
       opacity: 0.8;
     }
 
-    /* -------------------------
-       Адаптивность для мобильных
-       ------------------------- */
-    @media (max-width: 600px) {
-      .wb-form, .main-content {
-        width: 100%;
-        padding: 20px;
-      }
-
-      .field-wrapper {
+    /* Адаптив для маленьких экранов */
+    @media(max-width: 480px) {
+      .form-bottom {
         flex-direction: column;
         align-items: flex-start;
+        gap: 8px;
       }
-
-      .field-wrapper label {
-        width: 100%;
+      .contact-info {
         text-align: left;
-        margin-bottom: 5px;
-      }
-
-      .useful-info,
-      .contact-info,
-      .form-footer-text {
-        text-align: center;
-        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- -------------------------
-       Языки
-       ------------------------- -->
   <div class="top-right">
     <div class="logo-item">
       <img src="romana.svg" alt="Română">
@@ -228,16 +216,10 @@
     </div>
   </div>
 
-  <!-- -------------------------
-       Центральный логотип
-       ------------------------- -->
   <div class="center-logo">
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- -------------------------
-       Основной контейнер с формой
-       ------------------------- -->
   <div class="main-content">
     <form class="wb-form">
       <div class="field-wrapper">
@@ -249,16 +231,17 @@
         <input id="password" type="password" required>
       </div>
       <button class="login-button" type="submit">Login</button>
+
+      <!-- Нижние подписи и ссылки -->
+      <div class="form-bottom">
+        <a href="#" class="useful-info">Useful information</a>
+        <div class="contact-info">
+          <p>Call Customer Support</p>
+          <p>1303 / +373 22 21 03 03</p>
+        </div>
+      </div>
+      <p class="form-footer-text">BC Victoriabank SA, 2017</p>
     </form>
-
-    <a href="#" class="useful-info">Useful information</a>
-
-    <div class="contact-info">
-      <p>Call Customer Support</p>
-      <p>1303 / +373 22 21 03 03</p>
-    </div>
-
-    <p class="form-footer-text">BC Victoriabank SA, 2017</p>
   </div>
 
   <script>
@@ -282,4 +265,3 @@
 
 </body>
 </html>
-
