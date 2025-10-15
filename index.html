@@ -134,17 +134,37 @@
        Кнопка входа
        ------------------------- */
     .login-button {
-      margin-top: 20px; /* отступ сверху */
-      width: 100%; /* занимает всю ширину формы */
-      padding: 12px; /* внутренние отступы */
-      background-color: #0042b1; /* основной цвет */
-      color: white; /* цвет текста */
-      border: none; /* без рамки */
-      font-size: 15px; /* размер текста */
-      cursor: pointer; /* курсор в виде руки */
-      border-radius: 0; /* без скругления */
-      transition: background 0.3s; /* плавное изменение цвета при hover */
-    }
+  /* Центрирование и отступ */
+  margin: 48px auto 0;      /* отступ сверху и выравнивание по центру */
+  display: block;            /* кнопка как блочный элемент */
+  
+  /* Размеры */
+  height: 40px;              /* фиксированная высота */
+  line-height: 40px;         /* выравнивание текста по вертикали */
+  min-width: 136px;          /* минимальная ширина */
+  padding: 0 24px;           /* горизонтальные отступы внутри */
+
+  /* Цвет и фон */
+  background: #0088ff;       /* синий фон */
+  color: #FFFFFF;            /* белый текст */
+  border: 1px solid #0088ff; /* рамка такого же цвета */
+
+  /* Скругление */
+  border-radius: 4px;        /* закруглённые углы */
+
+  /* Шрифт */
+  font-family: "NotoSans-Regular", Helvetica, Arial, sans-serif !important;
+  font-feature-settings: "kern" on, "liga" off, "calt" on !important;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  /* Поведение */
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
 
     /* -------------------------
        Эффект при наведении на кнопку
